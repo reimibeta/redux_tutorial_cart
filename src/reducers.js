@@ -11,7 +11,10 @@ function reducer(state, action){
             let tempCart = state.cart.map((cartItem) => {
                 // console.log(cartItem);
                 if(cartItem.id === action.payload.id){
-                    // cartItem = 
+                    cartItem = {
+                        ...cartItem, 
+                        amount: cartItem.amount + 1
+                    }
                 }
                 return cartItem;
             });
