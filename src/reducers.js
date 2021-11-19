@@ -7,7 +7,18 @@ function reducer(state, action){
         case DECREASE:
             console.log("DECREASE: ", "you decreased amount.");
         case INCREASE:
-            console.log("INCREASE: ", "you increased amount.");
+            // console.log("INCREASE: ", "you increased amount.");
+            let tempCart = state.cart.map((cartItem) => {
+                // console.log(cartItem);
+                if(cartItem.id === action.payload.id){
+                    // cartItem = 
+                }
+                return cartItem;
+            });
+            return {
+                ...state, // copy old state value
+                cart:tempCart
+            }
         case REMOVE:
             // console.log("REMOVE: ", "you removed "+action.payload.id);
             return {
