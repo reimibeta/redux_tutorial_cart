@@ -1,7 +1,7 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
-import { clearItem, GET_TOTALS } from "../store/actions/cartItemActions";
+import { clearItem, getItemTotals } from "../store/actions/cartItemActions";
 // const CartContainer = ({ cart = [], total, dispatch }) => {
 const CartContainer = ({ cart = [], total, getTotals, clear }) => {
   // useEffect run everytime when component re-render
@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     console.log("Own: ", ownProps);
     return {
-      getTotals: () => dispatch({ type: GET_TOTALS }),
+      getTotals: () => dispatch(getItemTotals()),
       clear: () => dispatch(clearItem())
     };
 }
