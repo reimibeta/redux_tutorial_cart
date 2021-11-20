@@ -7,7 +7,7 @@ const initialStore = {
   amount: 0
 }
 
-function cartItemReducers(state = initialStore, action){
+function cartItemReducer(state = initialStore, action){
     if(action.type === CLEAR_CART){
         return { ...state, cart:[] };
     }
@@ -91,4 +91,4 @@ function cartItemReducers(state = initialStore, action){
     
 }
 
-export default cartItemReducers;
+export default cartItemReducer;
