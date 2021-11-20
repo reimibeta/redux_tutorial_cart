@@ -11,3 +11,9 @@ export const removeItem = (id) => {
         type: REMOVE, payload: {id}
     };
 }
+// clear
+export const clearItem = () => {
+    return {
+        type: CLEAR_CART
+    };
+}

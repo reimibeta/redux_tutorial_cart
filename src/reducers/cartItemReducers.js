@@ -1,63 +1,13 @@
-import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "./actions";
+import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "../actions/cartItemActions";
 // initial store
-import cartItems from "./cart-items";
+import cartItems from "../cart-items";
 const initialStore = {
   cart: cartItems,
   total: 0,
   amount: 0
 }
 
-function reducer(state = initialStore, action){
-    // switch(action.type){
-    //     case CLEAR_CART:
-    //         return { ...state, cart:[] };
-    //     case DECREASE:
-    //         // console.log("DECREASE: ", "you decreased amount.");
-    //         let tempCartDecrease = [];
-    //         if(action.payload.amount === 1){
-    //             console.log('INCREASE: ', 'it is one')
-    //         } else {
-    //             tempCartDecrease = state.cart.map((cartItem) => {
-    //                 // console.log(cartItem);
-    //                 if(cartItem.id === action.payload.id){
-    //                     cartItem = {
-    //                         ...cartItem, 
-    //                         amount: cartItem.amount - 1
-    //                     }
-    //                 }
-    //                 return cartItem;
-    //             });
-    //         }
-    //         return {
-    //             ...state,
-    //             cart: tempCartDecrease
-    //         };
-    //     case INCREASE:
-    //         // console.log("INCREASE: ", "you increased amount.");
-    //         let tempCartIncrease = state.cart.map((cartItem) => {
-    //             // console.log(cartItem);
-    //             if(cartItem.id === action.payload.id){
-    //                 cartItem = {
-    //                     ...cartItem, 
-    //                     amount: cartItem.amount + 1
-    //                 }
-    //             }
-    //             return cartItem;
-    //         });
-    //         return {
-    //             ...state, // copy old state value
-    //             cart:tempCartIncrease
-    //         }
-    //     case REMOVE:
-    //         // console.log("REMOVE: ", "you removed "+action.payload.id);
-    //         return {
-    //             ...state, 
-    //             cart:state.cart.filter((cartItem)=>cartItem.id !== action.payload.id)
-    //         };
-    //     default:
-    //         return state;
-    // }
-    
+function cartItemReducers(state = initialStore, action){
     if(action.type === CLEAR_CART){
         return { ...state, cart:[] };
     }
@@ -141,4 +91,4 @@ function reducer(state = initialStore, action){
     
 }
 
-export default reducer;
+export default cartItemReducers;

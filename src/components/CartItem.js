@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { DECREASE, INCREASE, REMOVE, TOGGLE_AMOUNT, removeItem } from "../actions";
+import { DECREASE, INCREASE, TOGGLE_AMOUNT, removeItem } from "../actions/cartItemActions";
 
-const CartItem = ({ img, title, price, amount, remove, increase, decrease, toggle }) => {
+const CartItem = ({ img, title, price, amount, remove, toggle }) => {
   return (
     <div className="cart-item">
       <img src={img} alt={title} />

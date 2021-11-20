@@ -7,12 +7,13 @@ import CartContainer from "./components/CartContainer";
 // redux stuff
 // redux store data
 import { createStore } from "redux";
-import reducer from "./reducers";
 import { Provider } from "react-redux";
 
 // reducer
-
-const store = createStore(reducer);
+// import reducer from "./reducers";
+// const store = createStore(reducer);
+import rootReducer from "./reducers/index";
+const store = createStore(rootReducer);
 
 function App() {
   // cart setup

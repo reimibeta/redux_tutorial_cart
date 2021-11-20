@@ -1,14 +1,15 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
-import { CLEAR_CART, GET_TOTALS } from "../actions";
-
-const CartContainer = ({ cart = [], total, dispatch }) => {
+import { clearItem, GET_TOTALS } from "../actions/cartItemActions";
+// const CartContainer = ({ cart = [], total, dispatch }) => {
+const CartContainer = ({ cart = [], total, getTotals, clear }) => {
   // useEffect run everytime when component re-render
   React.useEffect(() => {
-    dispatch({
-      type: GET_TOTALS
-    });
+    // dispatch({
+    //   type: GET_TOTALS
+    // });
+    getTotals();
   });
   if (cart.length === 0) {
     return (
@@ -42,7 +43,8 @@ const CartContainer = ({ cart = [], total, dispatch }) => {
           </h4>
         </div>
         <button 
-        onClick={() => dispatch({type: CLEAR_CART})}
+        // onClick={() => dispatch({type: CLEAR_CART})}
+        onClick={() => clear()}
         className="btn clear-btn">clear cart</button>
       </footer>
     </section>
@@ -50,8 +52,17 @@ const CartContainer = ({ cart = [], total, dispatch }) => {
 };
 
 const mapStateToProps = (state) => {
-    const { cart, total } = state;
+    console.log('STATE: ', state);
+    const { cart, total } = state.cartItemReducer;
     return {cart: cart, total: total};
 }
 
-export default connect(mapStateToProps)(CartContainer);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    console.log("Own: ", ownProps);
+    return {
+      getTotals: () => dispatch({ type: GET_TOTALS }),
+      clear: () => dispatch(clearItem())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);
