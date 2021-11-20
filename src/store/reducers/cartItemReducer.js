@@ -1,6 +1,6 @@
 import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "../actions/cartItemActions";
 // initial store
-import cartItems from "../cart-items";
+import cartItems from "../../cart-items";
 const initialStore = {
   cart: cartItems,
   total: 0,
