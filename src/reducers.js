@@ -1,4 +1,4 @@
-import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS } from "./actions";
+import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "./actions";
 
 function reducer(state, action){
     // switch(action.type){
@@ -57,22 +57,16 @@ function reducer(state, action){
             
     if(action.type === DECREASE){
         // console.log("DECREASE: ", "you decreased amount.");
-        let tempCart = [];
-        if(action.payload.amount === 1){
-            // console.log('INCREASE: ', 'it is one')
-            tempCart = state.cart.filter((cartItem)=>cartItem.id !== action.payload.id);
-        } else {
-            tempCart = state.cart.map((cartItem) => {
-                // console.log(cartItem);
-                if(cartItem.id === action.payload.id){
-                    cartItem = {
-                        ...cartItem, 
-                        amount: cartItem.amount - 1
-                    }
+        let tempCart = state.cart.map((cartItem) => {
+            // console.log(cartItem);
+            if(cartItem.id === action.payload.id){
+                cartItem = {
+                    ...cartItem, 
+                    amount: cartItem.amount - 1
                 }
-                return cartItem;
-            });
-        }
+            }
+            return cartItem;
+        });
         return {
             ...state,
             cart: tempCart
@@ -122,6 +116,19 @@ function reducer(state, action){
             total,
             amount
         };
+    }
+    if(action.type === TOGGLE_AMOUNT){
+        return {...state, cart: state.cart.map(cartItem => {
+            if(cartItem.id === action.payload.id){
+                if(action.payload.toggle === 'inc'){
+                    return cartItem = {...cartItem, amount:cartItem.amount + 1};
+                }
+                if(action.payload.toggle === 'dec'){
+                    return cartItem = {...cartItem, amount:cartItem.amount - 1};
+                }
+            }
+            return cartItem;
+        })};
     }
     return state;
     
