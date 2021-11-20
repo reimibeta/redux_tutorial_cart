@@ -1,4 +1,4 @@
-import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "../actions/cartItemActions";
+import { DECREASE, INCREASE, CLEAR_CART, REMOVE, GET_TOTALS, TOGGLE_AMOUNT } from "../actions/cartItem.actions";
 // initial store
 import cartItems from "../../cart-items";
 const initialStore = {

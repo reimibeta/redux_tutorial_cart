@@ -1,7 +1,7 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
-import { clearItem, getItemTotals } from "../store/actions/cartItemActions";
+import { clearItem, getItemTotals } from "../store/actions/cartItem.actions";
 // const CartContainer = ({ cart = [], total, dispatch }) => {
 const CartContainer = ({ cart = [], total, getTotals, clear }) => {
   // useEffect run everytime when component re-render
