@@ -1,10 +1,20 @@
-// import axios from "axios";
+export const USERNAME = "USERNAME";
+export const PASSWORD = "PASSWORD";
+export const LOGIN = "LOGIN";
 
-// export function login(data){
-//     return dispatch => {
-//         return axios.post('http://p.pcrpallet.com/api/users/user_token/', data).then(res => {
-//             const token = res.data.token;
-//             localStorage.setItem('jwtToken', token);
-//         });
-//     }
-// }
+// // username
+export const setUsername = (username) => {
+    return { type: USERNAME, payload: { username } };
+}
+// // password
+export const setPassword = (password) => {
+    return { type: PASSWORD, payload: { password }};
+}
+// login
+export const loginUser = (username, password) => {
+    console.log({
+        "username": username,
+        "password": password
+    });
+    return { type: LOGIN, payload: { username, password } };
+}
