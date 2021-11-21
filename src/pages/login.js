@@ -17,7 +17,7 @@ class Login extends Component {
     
       handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.value);
-        axios.post('http://p.pcrpallet.com/api/users/user_token/', {'username': 'reimi', 'password': 'iwtdstw'}).then(res => {
+        axios.post('http://p.pcrpallet.com/api/users/user_token/', {'name': 'reimi', 'password': 'iwtdstw'}).then(res => {
             // const token = res.data.token;
             // localStorage.setItem('jwtToken', token);
             console.log("token: ", res);
