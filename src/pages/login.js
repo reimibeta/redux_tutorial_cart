@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { loginUser, setUsername, setPassword } from "../store/actions/auth.actions";
+import { loginUser, setUsername, setPassword, refreshToken } from "../store/actions/auth.actions";
 
 class Login extends Component {
     constructor(props) {
@@ -29,10 +29,13 @@ class Login extends Component {
 
       handleSubmit(){
         console.log('props', this.props);
+        // this.props.login(
+        //     this.props.username,
+        //     this.props.password
+        // );
         this.props.login(
-            this.props.username,
-            this.props.password
-        );
+            'reimi', 'iwtdstw'
+        )
       }
     
     //   handleSubmit(event) {
@@ -68,6 +71,10 @@ class Login extends Component {
                 // onClick={() => this.props.login("reimi", 'iwtdstw')} 
                 onClick={() => this.handleSubmit()}
                 type="button" value="Submit" />
+                <input
+                // onClick={() => this.props.login("reimi", 'iwtdstw')} 
+                onClick={() => this.props.refresh('test')}
+                type="button" value="Refresh" />
                 {/* </form> */}
             </main>
         );
@@ -108,6 +115,7 @@ function mapDispatchToProps(dispatch){
         setUsername,
         setPassword,
         login:(username, password) => loginUser(username, password),
+        refresh: (token_refresh) => refreshToken(token_refresh)
     }, dispatch);
 }
 

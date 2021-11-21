@@ -1,6 +1,7 @@
 export const USERNAME = "USERNAME";
 export const PASSWORD = "PASSWORD";
 export const LOGIN = "LOGIN";
+export const REFRESH_TOKEN = "";
 
 // // username
 export const setUsername = (username) => {
@@ -17,4 +18,8 @@ export const loginUser = (username, password) => {
         "password": password
     });
     return { type: LOGIN, payload: { username, password } };
+}
+// refresh token
+export const refreshToken = (refresh_token) => {
+    return { type: REFRESH_TOKEN, payload: { refresh_token } }
 }
